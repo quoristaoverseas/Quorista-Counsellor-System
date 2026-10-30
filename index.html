@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#102b46">
+  <title>Counsellor Workspace | Quorista Overseas</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <main class="page">
+    <header class="brand"><div class="brand-mark">Q</div><div><strong>QUORISTA OVERSEAS</strong><span>COUNSELLOR WORKSPACE</span></div></header>
+    <section class="auth-card" id="auth-view">
+      <p class="eyebrow">TEAM ACCESS</p>
+      <h1>Your work, in one place.</h1>
+      <p class="muted">Sign in with your authorized Quorista counsellor account.</p>
+      <form id="login-form">
+        <label for="email">Work email</label>
+        <input id="email" type="email" autocomplete="username" required placeholder="name@quoristaoverseas.com">
+        <label for="password">Password</label>
+        <input id="password" type="password" autocomplete="current-password" required placeholder="Your password">
+        <button type="submit" id="login-button">Sign in</button>
+        <p class="message" id="auth-message" role="status"></p>
+      </form>
+      <p class="small-note">Access is restricted to accounts provisioned by the Quorista Super Admin.</p>
+    </section>
+    <section class="dashboard hidden" id="dashboard-view">
+      <div class="topline"><div><p class="eyebrow">TEAM WORKSPACE</p><h1 id="welcome-title">Welcome</h1></div><button class="button-secondary" id="signout-button">Sign out</button></div>
+      <div class="notice"><strong>Workspace connected.</strong><p>Your assigned client records and work queue will appear here when the secure staff permissions and application records are configured.</p></div>
+      <div class="grid">
+        <article class="panel"><span class="panel-label">MY CLIENTS</span><h2>Assigned clients</h2><p class="muted">Your authorized client list will appear here.</p></article>
+        <article class="panel"><span class="panel-label">APPLICATIONS</span><h2>Case progress</h2><p class="muted">Manage service-specific application progress.</p></article>
+        <article class="panel"><span class="panel-label">FOLLOW-UPS</span><h2>Work queue</h2><p class="muted">Follow-ups and pending actions will appear here.</p></article>
+      </div>
+    </section>
+    <footer>© <span id="year"></span> Quorista Overseas · Authorized staff only</footer>
+  </main>
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
