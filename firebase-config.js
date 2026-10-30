@@ -4,5 +4,5 @@ export const firebaseConfig = {
   projectId: "quorista-client-platform",
   storageBucket: "quorista-client-platform.firebasestorage.app",
   messagingSenderId: "641397594144",
-  appId: "1:641397594144:web:c224b6cbb8f37896d24445"
+  appId: "1:641397594144:web:54e08ab945097f72d24445"
 };
