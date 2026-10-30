@@ -3,37 +3,54 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#102b46">
+  <meta name="theme-color" content="#10065c">
+  <meta name="description" content="Authorized Quorista Overseas counsellor workspace.">
   <title>Counsellor Workspace | Quorista Overseas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
-  <main class="page">
-    <header class="brand"><div class="brand-mark">Q</div><div><strong>QUORISTA OVERSEAS</strong><span>COUNSELLOR WORKSPACE</span></div></header>
-    <section class="auth-card" id="auth-view">
-      <p class="eyebrow">TEAM ACCESS</p>
-      <h1>Your work, in one place.</h1>
-      <p class="muted">Sign in with your authorized Quorista counsellor account.</p>
-      <form id="login-form">
-        <label for="email">Work email</label>
-        <input id="email" type="email" autocomplete="username" required placeholder="name@quoristaoverseas.com">
-        <label for="password">Password</label>
-        <input id="password" type="password" autocomplete="current-password" required placeholder="Your password">
-        <button type="submit" id="login-button">Sign in</button>
-        <p class="message" id="auth-message" role="status"></p>
-      </form>
-      <p class="small-note">Access is restricted to accounts provisioned by the Quorista Super Admin.</p>
-    </section>
-    <section class="dashboard hidden" id="dashboard-view">
-      <div class="topline"><div><p class="eyebrow">TEAM WORKSPACE</p><h1 id="welcome-title">Welcome</h1></div><button class="button-secondary" id="signout-button">Sign out</button></div>
-      <div class="notice"><strong>Workspace connected.</strong><p>Your assigned client records and work queue will appear here when the secure staff permissions and application records are configured.</p></div>
-      <div class="grid">
-        <article class="panel"><span class="panel-label">MY CLIENTS</span><h2>Assigned clients</h2><p class="muted">Your authorized client list will appear here.</p></article>
-        <article class="panel"><span class="panel-label">APPLICATIONS</span><h2>Case progress</h2><p class="muted">Manage service-specific application progress.</p></article>
-        <article class="panel"><span class="panel-label">FOLLOW-UPS</span><h2>Work queue</h2><p class="muted">Follow-ups and pending actions will appear here.</p></article>
+  <header class="site-header"><a class="brand" href="https://quoristaoverseas.in/">Quorista <span>Overseas</span></a><span class="access-label">PRIVATE TEAM ACCESS</span></header>
+  <main class="workspace">
+    <section class="intro-panel">
+      <p class="eyebrow">PEOPLE • PROGRESS • POSSIBILITIES</p>
+      <h1>Make every client journey <em>count.</em></h1>
+      <p class="intro-copy">One shared workspace for Quorista's Study Abroad and Tourism teams to manage assigned clients and keep their journeys moving.</p>
+      <div class="journey-points">
+        <div><span>01</span><p><strong>One team workspace</strong><small>Study Abroad and Tourism workflows, together.</small></p></div>
+        <div><span>02</span><p><strong>Clear client progress</strong><small>Keep client-facing updates separate from private notes.</small></p></div>
+        <div><span>03</span><p><strong>Authorized access</strong><small>Each team member sees only permitted client records.</small></p></div>
       </div>
+      <div class="signature">Study <i>•</i> Travel <i>•</i> Beyond Borders</div>
     </section>
-    <footer>© <span id="year"></span> Quorista Overseas · Authorized staff only</footer>
+    <section class="auth-column">
+      <div class="auth-card" id="auth-view">
+        <p class="eyebrow">AUTHORIZED TEAM ACCESS</p>
+        <h2>Welcome back.</h2>
+        <p class="muted">Sign in using the account provided by your Quorista Super Admin.</p>
+        <form id="login-form">
+          <label for="email">Work email</label>
+          <input id="email" type="email" autocomplete="username" required placeholder="Your registered email">
+          <label for="password">Password</label>
+          <input id="password" type="password" autocomplete="current-password" required placeholder="Enter your password">
+          <button type="submit" id="login-button">Sign in <span>→</span></button>
+          <p class="message" id="auth-message" role="status"></p>
+        </form>
+        <p class="small-note">Access is restricted to active accounts provisioned by the Quorista Super Admin. Do not share your login details.</p>
+      </div>
+      <section class="dashboard hidden" id="dashboard-view">
+        <div class="dashboard-top"><div><p class="eyebrow">TEAM WORKSPACE</p><h2 id="welcome-title">Welcome</h2><p class="muted" id="profile-email"></p></div><button class="button-secondary" id="signout-button">Sign out</button></div>
+        <div class="notice"><strong>Workspace connected.</strong><p>Your account is authenticated. Assigned client records and work queues will appear here after the secure staff permissions and application records are configured.</p></div>
+        <div class="grid">
+          <article class="panel"><span class="panel-label">MY CLIENTS</span><h3>Assigned clients</h3><p class="muted">Your authorized client list will appear here.</p></article>
+          <article class="panel"><span class="panel-label">APPLICATIONS</span><h3>Case progress</h3><p class="muted">Manage Study Abroad or Tourism application progress.</p></article>
+          <article class="panel"><span class="panel-label">FOLLOW-UPS</span><h3>Work queue</h3><p class="muted">Pending follow-ups and next actions will appear here.</p></article>
+        </div>
+      </section>
+      <footer>© <span id="year"></span> Quorista Overseas <span>·</span> Authorized staff only</footer>
+    </section>
   </main>
   <script type="module" src="./app.js"></script>
 </body>
