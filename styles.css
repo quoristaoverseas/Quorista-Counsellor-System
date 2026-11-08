@@ -43,3 +43,26 @@ button, a, input { touch-action:manipulation; }
   .hero h1 { font-size:clamp(2rem,10.5vw,2.55rem); }
   .auth-card, .dashboard { padding:18px 14px; }
 }
+
+/* Mobile audit hardening — counsellor workspace. */
+html, body { width:100%; max-width:100%; overflow-x:clip; }
+main, header, footer, section, article, .container, .nav-wrap,
+.hero-inner, .hero-copy, .auth-column, .auth-card, .dashboard,
+.dashboard-top, .panel, .notice { min-width:0; max-width:100%; }
+h1, h2, h3, h4, p, a, label, small, strong { overflow-wrap:anywhere; }
+input, select, textarea, button { max-width:100%; min-width:0; }
+@media (max-width:760px) {
+  .dashboard-top, .panel-header, .panel-actions { flex-wrap:wrap; }
+  .dashboard table, .panel table { display:block; width:100%; overflow-x:auto; -webkit-overflow-scrolling:touch; }
+}
+@media (max-width:600px) {
+  .container, .nav-wrap { width:calc(100% - 30px); }
+  button, .button-secondary, input, select, textarea { min-height:44px; }
+  .dashboard, .auth-card, .panel { overflow-wrap:anywhere; }
+  .dashboard { padding-bottom:max(22px, env(safe-area-inset-bottom)); }
+  .panel-actions button { flex:1 1 100%; }
+}
+@media (max-width:360px) {
+  .container, .nav-wrap { width:calc(100% - 24px); }
+  .hero h1 { font-size:clamp(1.95rem, 10vw, 2.5rem); }
+}
