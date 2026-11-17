@@ -36,14 +36,44 @@ onAuthStateChanged(auth, async (user) => {
     return;
   }
   try {
-    const profileSnap = await getDoc(doc(db, "users", user.uid));
-    if (!profileSnap.exists() || !["study_counsellor", "tourism_counsellor", "super_admin"].includes(profileSnap.data().role) || profileSnap.data().accountStatus !== "active") {
+    const [profileSnap, staffSnap] = await Promise.all([
+      getDoc(doc(db, "users", user.uid)),
+      getDoc(doc(db, "staff", user.uid))
+    ]);
+    if (!profileSnap.exists() || !staffSnap.exists()) {
       await signOut(auth);
-      $("auth-message").textContent = "This account is not provisioned for Counsellor System access. Please contact the Super Admin.";
+      $("auth-message").textContent = "This account is missing its staff access profile. Please contact the Super Admin.";
       return;
     }
-    $("welcome-title").textContent = "Welcome, " + (profileSnap.data().fullName || "Team member");
-    $("profile-email").textContent = profileSnap.data().serviceType ? "Service: " + profileSnap.data().serviceType : (profileSnap.data().email || user.email || "");
+
+    const profile = profileSnap.data();
+    const staff = staffSnap.data();
+    const roleService = {
+      study_counsellor: "study_abroad",
+      tourism_counsellor: "tourism"
+    };
+    const expectedService = roleService[profile.role];
+    const staffIsActive = staff.active === true &&
+      ["counsellor", "super_admin"].includes(staff.role) &&
+      Array.isArray(staff.services);
+    const roleMatchesService = profile.role === "super_admin"
+      ? staff.role === "super_admin"
+      : Boolean(expectedService && staff.services.includes(expectedService));
+
+    if (profile.accountStatus !== "active" || !staffIsActive || !roleMatchesService) {
+      await signOut(auth);
+      $("auth-message").textContent = "This account is inactive or its staff permissions do not match. Please contact the Super Admin.";
+      return;
+    }
+
+    const serviceNames = staff.services.map(service =>
+      service === "study_abroad" ? "Study Abroad" :
+      service === "tourism" ? "International Tourism" : service
+    );
+    $("welcome-title").textContent = "Welcome, " + (profile.fullName || "Team member");
+    $("profile-email").textContent = serviceNames.length
+      ? "Authorized services: " + serviceNames.join(", ")
+      : (profile.email || user.email || "");
     $("auth-view").classList.add("hidden");
     $("dashboard-view").classList.remove("hidden");
   } catch (error) {
