@@ -178,3 +178,41 @@ button,a{-webkit-tap-highlight-color:transparent}
 @media(prefers-reduced-motion:reduce){
  *,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
 }
+
+
+/* Staff operational details and interaction states */
+.team-label{color:rgba(245,249,255,.78)}
+.team-label span{background:#d9b36d;box-shadow:0 0 0 4px rgba(217,179,109,.13)}
+.dashboard-top{padding:22px 24px;border:1px solid #e3eaf2;border-radius:13px;background:#fff;box-shadow:0 8px 24px -23px rgba(20,44,78,.4)}
+.notice{border:1px solid #e3eaf2;background:#f3f7fb;color:#244d77}
+.workspace-message{padding:3px 0}
+.workspace-case-panel,.workspace-detail-panel{padding:19px}
+.case-list{scrollbar-width:thin;scrollbar-color:#c5d3e1 transparent}
+.case-row{padding:13px}
+.client-contact-grid{gap:9px}
+.client-contact-grid div{border:1px solid #edf1f5;padding:11px}
+.detail-section{gap:10px;padding:17px 0}
+.detail-section h4{font-size:1rem}
+.detail-section label{display:grid;gap:6px}
+.detail-section input,.detail-section select,.detail-section textarea{min-height:42px}
+.detail-section textarea{min-height:82px;resize:vertical}
+.questionnaire-details{border-color:#e3eaf2;background:#f8fafc;border-radius:9px}
+.questionnaire-details summary{color:#315f91;padding:3px}
+.questionnaire-grid div{border:1px solid #edf1f5;background:#fff}
+.record-list article{padding:12px;background:#fff}
+.record-list article strong{color:#183b63}
+.mini-action{border-radius:6px}
+.mini-action:hover{text-decoration:underline;text-underline-offset:3px}
+footer{padding-bottom:8px}
+@media(max-width:900px){
+ .dashboard-top{padding:18px}
+ .workspace-layout{grid-template-columns:minmax(0,1fr)}
+ .case-list{max-height:300px}
+}
+@media(max-width:600px){
+ .team-label{font-size:.55rem;letter-spacing:.1em}
+ .workspace-case-panel,.workspace-detail-panel{padding:14px}
+ .dashboard-top{align-items:flex-start}
+ .dashboard-top .button-secondary{flex:0 0 auto}
+ .client-contact-grid,.university-fields,.questionnaire-grid{grid-template-columns:minmax(0,1fr)}
+}
